@@ -1,15 +1,17 @@
 package ru.orangepigment.pfp.models
 
-import java.util.UUID
+import io.circe.Encoder
 
-import monix.newtypes._
+import java.util.UUID
+import monix.newtypes.*
+import monix.newtypes.integrations.DerivedCirceEncoder
 
 type CategoryId = CategoryId.Type
 
-object CategoryId extends NewtypeWrapped[UUID]
+object CategoryId extends NewtypeWrapped[UUID] with DerivedCirceEncoder
 
 type CategoryName = CategoryName.Type
 
-object CategoryName extends NewtypeWrapped[String]
+object CategoryName extends NewtypeWrapped[String] with DerivedCirceEncoder
 
-case class Category(uuid: CategoryId, name: CategoryName)
+case class Category(uuid: CategoryId, name: CategoryName) derives Encoder

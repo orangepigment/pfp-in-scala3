@@ -1,8 +1,6 @@
 package ru.orangepigment.pfp.services
 
-import java.util.Locale.Category
-
-import ru.orangepigment.pfp.models.{ CategoryId, CategoryName }
+import ru.orangepigment.pfp.models.{ Category, CategoryId, CategoryName }
 
 trait Categories[F[_]] {
   def findAll: F[List[Category]]

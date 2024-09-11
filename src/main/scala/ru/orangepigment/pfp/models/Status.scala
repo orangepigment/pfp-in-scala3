@@ -1,7 +1,7 @@
 package ru.orangepigment.pfp.models
 
 import io.circe.Encoder
-import monix.newtypes._
+import monix.newtypes.*
 import monix.newtypes.integrations.DerivedCirceEncoder
 import monocle.Iso
 

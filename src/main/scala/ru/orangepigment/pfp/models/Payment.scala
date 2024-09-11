@@ -1,8 +1,8 @@
 package ru.orangepigment.pfp.models
 
-import io.github.iltotore.iron._
-import io.github.iltotore.iron.constraint.string._
-import monix.newtypes._
+import io.github.iltotore.iron.*
+import io.github.iltotore.iron.constraint.string.*
+import monix.newtypes.*
 import ru.orangepigment.pfp.util.NumericLength
 import squants.market.Money
 

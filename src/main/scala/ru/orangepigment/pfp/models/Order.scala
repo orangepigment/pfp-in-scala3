@@ -3,8 +3,8 @@ package ru.orangepigment.pfp.models
 import java.util.UUID
 
 import cats.Show
-import cats.syntax.contravariant._
-import monix.newtypes._
+import cats.syntax.contravariant.*
+import monix.newtypes.*
 import squants.market.Money
 
 type OrderId = OrderId.Type

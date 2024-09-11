@@ -2,8 +2,8 @@ package ru.orangepigment.pfp.util
 
 import scala.compiletime.constValue
 
-import io.github.iltotore.iron._
-import io.github.iltotore.iron.compileTime._
+import io.github.iltotore.iron.*
+import io.github.iltotore.iron.compileTime.*
 
 final class NumericLength[V <: Int]
 

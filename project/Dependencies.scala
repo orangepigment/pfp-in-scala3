@@ -6,24 +6,22 @@ object Dependencies {
     val cats          = "2.12.0"
     val catsEffect    = "3.5.4"
     val catsRetry     = "3.1.3"
-    val circe         = "0.14.2"
-    val ciris         = "2.3.2"
+    val circe         = "0.14.10"
+    val ciris         = "3.6.0"
     //val javaxCrypto   = "1.0.1"
     val fs2           = "3.10.2"
-    val http4s        = "0.23.1"
+    val http4s        = "0.23.7"
     val http4sJwtAuth = "1.2.3"
     val iron          = "2.6.0"
     val kittens       = "3.3.0"
     val log4cats      = "2.7.0"
     val monocle       = "3.2.0"
-    val monixNewtypes       = "0.3.0"
+    val monixNewtypes = "0.3.0"
     val redis4cats    = "1.7.0"
     val skunk         = "0.6.3"
     val squants       = "1.8.3"
-
-    val logback          = "1.5.6"
-
-    val weaver = "0.8.4"
+    val logback       = "1.5.6"
+    val weaver        = "0.8.4"
   }
 
   object Libraries {
@@ -42,10 +40,10 @@ object Dependencies {
 
     val circeCore    = circe("core")
     val circeParser  = circe("parser")
-    val circeRefined = circe("refined")
+    //val circeRefined = circe("refined")
 
     val cirisCore    = ciris("ciris")
-    val cirisRefined = ciris("ciris-refined")
+    //val cirisRefined = ciris("ciris-refined")
 
     val http4sDsl    = http4s("dsl")
     val http4sServer = http4s("ember-server")

@@ -2,7 +2,7 @@ package ru.orangepigment.pfp.models
 
 import java.util.UUID
 
-import monix.newtypes._
+import monix.newtypes.*
 
 type UserId = UserId.Type
 object UserId extends NewtypeWrapped[UUID]

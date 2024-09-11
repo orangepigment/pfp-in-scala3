@@ -1,6 +1,6 @@
 package ru.orangepigment.pfp.models
 
-import monix.newtypes._
+import monix.newtypes.*
 import squants.market.Money
 
 type Quantity = Quantity.Type

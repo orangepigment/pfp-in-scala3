@@ -1,21 +1,25 @@
 package ru.orangepigment.pfp.models
 
-import java.util.UUID
+import io.circe.Encoder
 
-import monix.newtypes._
+import java.util.UUID
+import monix.newtypes.*
+import monix.newtypes.integrations.DerivedCirceEncoder
 import squants.market.Money
+
+import ru.orangepigment.pfp.models.OrphanInstances.given
 
 type ItemId = ItemId.Type
 
-object ItemId extends NewtypeWrapped[UUID]
+object ItemId extends NewtypeWrapped[UUID] with DerivedCirceEncoder
 
 type ItemName = ItemName.Type
 
-object ItemName extends NewtypeWrapped[String]
+object ItemName extends NewtypeWrapped[String] with DerivedCirceEncoder
 
 type ItemDescription = ItemDescription.Type
 
-object ItemDescription extends NewtypeWrapped[String]
+object ItemDescription extends NewtypeWrapped[String] with DerivedCirceEncoder
 
 case class Item(
     uuid: ItemId,
@@ -24,7 +28,7 @@ case class Item(
     price: Money,
     Item: Item,
     category: Category
-)
+) derives Encoder
 
 case class CreateItem(
     name: ItemName,
