@@ -6,3 +6,6 @@ hs_err_pid*
 /.idea/
 **/target/
 /.bsp/
+
+# scala worrksheet
+*.sc 

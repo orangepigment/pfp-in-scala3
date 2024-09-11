@@ -16,12 +16,12 @@ object Dependencies {
     val kittens       = "3.3.0"
     val log4cats      = "2.7.0"
     val monocle       = "3.2.0"
+    val monixNewtypes       = "0.3.0"
     val redis4cats    = "1.7.0"
     val skunk         = "0.6.3"
     val squants       = "1.8.3"
 
     val logback          = "1.5.6"
-    val organizeImports  = "0.6.0"
 
     val weaver = "0.8.4"
   }
@@ -30,6 +30,7 @@ object Dependencies {
     def circe(artifact: String): ModuleID  = "io.circe"   %% s"circe-$artifact"  % V.circe
     def ciris(artifact: String): ModuleID  = "is.cir"     %% artifact            % V.ciris
     def http4s(artifact: String): ModuleID = "org.http4s" %% s"http4s-$artifact" % V.http4s
+    def monixNewtypes(artifact: String): ModuleID = "io.monix" %% s"newtypes-$artifact" % V.monixNewtypes
 
     val cats       = "org.typelevel"    %% "cats-core"   % V.cats
     val catsEffect = "org.typelevel"    %% "cats-effect" % V.catsEffect
@@ -59,6 +60,9 @@ object Dependencies {
 
     val monocleCore = "dev.optics" %% "monocle-core" % V.monocle
 
+    val monixNewtypesCore = monixNewtypes("core")
+    val monixNewtypesCirce = monixNewtypes("circe-v0-14")
+
     val log4cats = "org.typelevel" %% "log4cats-slf4j" % V.log4cats
 
     //val javaxCrypto = "javax.xml.crypto" % "jsr105-api" % V.javaxCrypto
@@ -79,9 +83,6 @@ object Dependencies {
     val weaverCats        = "com.disneystreaming" %% "weaver-cats"        % V.weaver
     val weaverDiscipline  = "com.disneystreaming" %% "weaver-discipline"  % V.weaver
     val weaverScalaCheck  = "com.disneystreaming" %% "weaver-scalacheck"  % V.weaver
-
-    // Scalafix rules
-    val organizeImports = "com.github.liancheng" %% "organize-imports" % V.organizeImports
   }
 
 }

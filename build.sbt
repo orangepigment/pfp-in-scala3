@@ -7,13 +7,12 @@ ThisBuild / organization := "ru.orangepigment"
 ThisBuild / organizationName := "orangepigment"
 
 ThisBuild / evictionErrorLevel := Level.Warn
-ThisBuild / scalafixDependencies += Libraries.organizeImports
+Global / semanticdbEnabled := true
 
 lazy val root = (project in file("."))
   .settings(
     name := "pfp-in-scala3",
     scalafmtOnCompile := true,
-    scalacOptions ++= Seq("-Ymacro-annotations", "-Wconf:cat=unused:info"),
     libraryDependencies ++= Seq(
       Libraries.cats,
       Libraries.catsEffect,
@@ -36,6 +35,8 @@ lazy val root = (project in file("."))
       Libraries.log4cats,
       Libraries.logback % Runtime,
       Libraries.monocleCore,
+      Libraries.monixNewtypesCore,
+      Libraries.monixNewtypesCirce,
       Libraries.redis4catsEffects,
       Libraries.redis4catsLog4cats,
       Libraries.skunkCore,
@@ -44,4 +45,4 @@ lazy val root = (project in file("."))
     )
   )
 
-addCommandAlias("runLinter", ";scalafixAll --rules OrganizeImports")
+addCommandAlias("lint", ";scalafmtAll ;scalafixAll --rules OrganizeImports")
