@@ -2,16 +2,16 @@ package ru.orangepigment.pfp.models
 
 import io.circe.Encoder
 import monix.newtypes.*
-import monix.newtypes.integrations.DerivedCirceEncoder
+import monix.newtypes.integrations.DerivedCirceCodec
 import monocle.Iso
 
 type RedisStatus = RedisStatus.Type
 
-object RedisStatus extends NewtypeWrapped[String] with DerivedCirceEncoder
+object RedisStatus extends NewtypeWrapped[String] with DerivedCirceCodec
 
 type PostgresStatus = PostgresStatus.Type
 
-object PostgresStatus extends NewtypeWrapped[String] with DerivedCirceEncoder
+object PostgresStatus extends NewtypeWrapped[String] with DerivedCirceCodec
 
 case class AppStatus(
     redis: RedisStatus,

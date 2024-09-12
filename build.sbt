@@ -19,6 +19,7 @@ lazy val root = (project in file("."))
       Libraries.catsRetry,
       Libraries.kittens,
       Libraries.circeCore,
+      Libraries.circeGeneric,
       Libraries.circeParser,
       Libraries.cirisCore,
       Libraries.fs2,

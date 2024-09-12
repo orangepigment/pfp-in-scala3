@@ -1,9 +1,9 @@
 package ru.orangepigment.pfp.models
 
 import scala.util.control.NoStackTrace
-
 import cats.{ Eq, Show }
 import cats.derived.*
+import io.circe.Codec
 
 object Errors {
 
@@ -15,5 +15,11 @@ object Errors {
 
   case class OrderError(cause: String)   extends OrderOrPaymentError derives Show, Eq
   case class PaymentError(cause: String) extends OrderOrPaymentError derives Show, Eq
+
+  case class CartNotFound(userId: UserId) extends NoStackTrace derives Codec
+
+  case class UserNotFound(username: UserName)    extends NoStackTrace
+  case class UserNameInUse(username: UserName)   extends NoStackTrace derives Show
+  case class InvalidPassword(username: UserName) extends NoStackTrace
 
 }

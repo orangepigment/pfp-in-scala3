@@ -39,11 +39,10 @@ object Dependencies {
     val fs2        = "co.fs2"           %% "fs2-core"    % V.fs2
 
     val circeCore    = circe("core")
+    val circeGeneric    = circe("generic")
     val circeParser  = circe("parser")
-    //val circeRefined = circe("refined")
 
     val cirisCore    = ciris("ciris")
-    //val cirisRefined = ciris("ciris-refined")
 
     val http4sDsl    = http4s("dsl")
     val http4sServer = http4s("ember-server")

@@ -1,9 +1,10 @@
 package ru.orangepigment.pfp.models
 
 import cats.syntax.either.*
+import dev.profunktor.auth.jwt.JwtToken
 import io.circe.Decoder.Result
-import io.circe.{ Decoder, DecodingFailure, Encoder, HCursor, Json }
-import squants.market.{ Money, defaultMoneyContext }
+import io.circe.{Decoder, DecodingFailure, Encoder, HCursor, Json}
+import squants.market.{Money, defaultMoneyContext}
 
 object OrphanInstances {
 
@@ -24,7 +25,10 @@ object OrphanInstances {
 
       rawFields.flatMap { (value, currency) =>
         Money(value, currency)(using defaultMoneyContext).toEither
-          .leftMap(e => DecodingFailure(e.getMessage, Nil))
+          .leftMap(e => DecodingFailure(e.getMessage, c.history))
       }
     }
+
+  given Encoder[JwtToken] =
+    Encoder.forProduct1("access_token")(_.value)
 }

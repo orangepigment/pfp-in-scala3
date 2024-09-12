@@ -1,7 +1,7 @@
 package ru.orangepigment.pfp.services
 
-import ru.orangepigment.pfp.models.{ JwtToken, User, UserName }
-import sun.security.util.Password
+import dev.profunktor.auth.jwt.JwtToken
+import ru.orangepigment.pfp.models.{ Password, User, UserName }
 
 trait Auth[F[_]] {
   def findUser(token: JwtToken): F[Option[User]]
