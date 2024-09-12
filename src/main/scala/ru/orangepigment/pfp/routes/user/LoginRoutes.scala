@@ -9,7 +9,7 @@ import org.http4s.circe.JsonDecoder
 import org.http4s.dsl.Http4sDsl
 import org.http4s.server.Router
 import ru.orangepigment.pfp.models.Errors.{ InvalidPassword, UserNotFound }
-import ru.orangepigment.pfp.models.OrphanInstances.given_Encoder_JwtToken
+import ru.orangepigment.pfp.models.OrphanInstances.given
 import ru.orangepigment.pfp.routes.params.LoginUser
 import ru.orangepigment.pfp.services.Auth
 import ru.orangepigment.pfp.util.http4s.RefinedRequestDecoder

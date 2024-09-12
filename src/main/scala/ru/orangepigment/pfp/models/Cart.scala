@@ -17,5 +17,5 @@ object Cart extends NewtypeWrapped[Map[ItemId, Quantity]] {
       .map(Cart.apply)
 }
 
-case class CartItem(item: Item, quantity: Quantity) derives Codec
-case class CartTotal(items: List[CartItem], total: Money) derives Codec
+case class CartItem(item: Item, quantity: Quantity) derives Codec.AsObject
+case class CartTotal(items: List[CartItem], total: Money) derives Codec.AsObject

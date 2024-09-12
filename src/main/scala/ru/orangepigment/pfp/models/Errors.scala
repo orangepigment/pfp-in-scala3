@@ -16,7 +16,7 @@ object Errors {
   case class OrderError(cause: String)   extends OrderOrPaymentError derives Show, Eq
   case class PaymentError(cause: String) extends OrderOrPaymentError derives Show, Eq
 
-  case class CartNotFound(userId: UserId) extends NoStackTrace derives Codec
+  case class CartNotFound(userId: UserId) extends NoStackTrace derives Codec.AsObject
 
   case class UserNotFound(username: UserName)    extends NoStackTrace
   case class UserNameInUse(username: UserName)   extends NoStackTrace derives Show

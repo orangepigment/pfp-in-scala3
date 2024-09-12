@@ -21,7 +21,7 @@ case class Order(
     pid: PaymentId,
     items: Map[ItemId, Quantity],
     total: Money
-) derives Codec
+) derives Codec.AsObject
 
 object Order {
   given Decoder[Map[ItemId, Quantity]] = Decoder.decodeMap[ItemId, Quantity]

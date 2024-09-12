@@ -14,4 +14,4 @@ type CategoryName = CategoryName.Type
 
 object CategoryName extends NewtypeWrapped[String] with DerivedCirceCodec
 
-case class Category(uuid: CategoryId, name: CategoryName) derives Codec
+case class Category(uuid: CategoryId, name: CategoryName) derives Codec.AsObject

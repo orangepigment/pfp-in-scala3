@@ -37,7 +37,7 @@ case class Item(
     price: Money,
     Item: Item,
     category: Category
-) derives Codec
+) derives Codec.AsObject
 
 case class CreateItem(
     name: ItemName,

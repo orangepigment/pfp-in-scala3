@@ -35,6 +35,6 @@ case class Card(
     number: CardNumber,
     expiration: CardExpiration,
     cvv: CVV
-) derives Codec
+) derives Codec.AsObject
 
-case class Payment(id: UserId, total: Money, card: Card) derives Codec
+case class Payment(id: UserId, total: Money, card: Card) derives Codec.AsObject

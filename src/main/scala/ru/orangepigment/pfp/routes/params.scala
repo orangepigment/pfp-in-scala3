@@ -47,12 +47,12 @@ object params {
   case class LoginUser(
       username: UserNameParam,
       password: PasswordParam
-  ) derives Codec
+  ) derives Codec.AsObject
 
   case class CreateUser(
       username: UserNameParam,
       password: PasswordParam
-  ) derives Codec
+  ) derives Codec.AsObject
 
   type BrandParam = BrandParam.Type
   object BrandParam extends NewtypeWrapped[String :| Not[Empty]] with DerivedCirceCodec with NewtypeParamDecoder {
@@ -78,7 +78,7 @@ object params {
       price: PriceParam,
       brandId: BrandId,
       categoryId: CategoryId
-  ) derives Codec {
+  ) derives Codec.AsObject {
     def toDomain: CreateItem =
       CreateItem(
         ItemName(name.value),
@@ -92,7 +92,7 @@ object params {
   type ItemIdParam = ItemIdParam.Type
   object ItemIdParam extends NewtypeWrapped[String :| ValidUUID] with DerivedCirceCodec
 
-  case class UpdateItemParam(id: ItemIdParam, price: PriceParam) derives Codec {
+  case class UpdateItemParam(id: ItemIdParam, price: PriceParam) derives Codec.AsObject {
     def toDomain: UpdateItem =
       UpdateItem(
         ItemId(UUID.fromString(id.value)),

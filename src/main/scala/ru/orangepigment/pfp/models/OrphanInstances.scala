@@ -1,10 +1,12 @@
 package ru.orangepigment.pfp.models
 
+import cats.{ Eq, Show }
+import cats.syntax.contravariant.*
 import cats.syntax.either.*
 import dev.profunktor.auth.jwt.JwtToken
 import io.circe.Decoder.Result
-import io.circe.{Decoder, DecodingFailure, Encoder, HCursor, Json}
-import squants.market.{Money, defaultMoneyContext}
+import io.circe.{ Decoder, DecodingFailure, Encoder, HCursor, Json }
+import squants.market.{ Currency, Money, defaultMoneyContext }
 
 object OrphanInstances {
 
@@ -29,6 +31,24 @@ object OrphanInstances {
       }
     }
 
-  given Encoder[JwtToken] =
+  given currencyEq: Eq[Currency] =
+    Eq.and(
+      Eq.and(Eq.by(_.code), Eq.by(_.symbol)),
+      Eq.by(_.name)
+    )
+
+  given moneyEq: Eq[Money] =
+    Eq.and(Eq.by(_.amount), Eq.by(_.currency))
+
+  given moneyShow: Show[Money] =
+    Show.fromToString
+
+  given tokenEq: Eq[JwtToken] =
+    Eq.by(_.value)
+
+  given tokenShow: Show[JwtToken] =
+    Show[String].contramap[JwtToken](_.value)
+
+  given tokenEncoder: Encoder[JwtToken] =
     Encoder.forProduct1("access_token")(_.value)
 }
