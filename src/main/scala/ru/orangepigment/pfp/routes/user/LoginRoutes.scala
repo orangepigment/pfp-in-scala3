@@ -11,7 +11,7 @@ import org.http4s.server.Router
 import ru.orangepigment.pfp.models.Errors.{ InvalidPassword, UserNotFound }
 import ru.orangepigment.pfp.models.OrphanInstances.given
 import ru.orangepigment.pfp.routes.params.LoginUser
-import ru.orangepigment.pfp.services.Auth
+import ru.orangepigment.pfp.services.auth.Auth
 import ru.orangepigment.pfp.util.http4s.RefinedRequestDecoder
 
 final class LoginRoutes[F[_]: JsonDecoder: MonadThrow](

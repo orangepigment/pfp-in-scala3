@@ -7,11 +7,11 @@ import monocle.Iso
 
 type RedisStatus = RedisStatus.Type
 
-object RedisStatus extends NewtypeWrapped[String] with DerivedCirceCodec
+object RedisStatus extends NewtypeWrapped[Status] with DerivedCirceCodec
 
 type PostgresStatus = PostgresStatus.Type
 
-object PostgresStatus extends NewtypeWrapped[String] with DerivedCirceCodec
+object PostgresStatus extends NewtypeWrapped[Status] with DerivedCirceCodec
 
 case class AppStatus(
     redis: RedisStatus,
@@ -21,7 +21,9 @@ case class AppStatus(
 enum Status {
   case Okay
   case Unreachable
+}
 
+object Status {
   val _Bool: Iso[Status, Boolean] =
     Iso[Status, Boolean] {
       case Okay        => true

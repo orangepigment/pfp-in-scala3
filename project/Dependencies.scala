@@ -8,7 +8,6 @@ object Dependencies {
     val catsRetry     = "3.1.3"
     val circe         = "0.14.10"
     val ciris         = "3.6.0"
-    //val javaxCrypto   = "1.0.1"
     val fs2           = "3.10.2"
     val http4s        = "0.23.7"
     val http4sJwtAuth = "1.2.3"
@@ -18,7 +17,7 @@ object Dependencies {
     val monocle       = "3.2.0"
     val monixNewtypes = "0.3.0"
     val redis4cats    = "1.7.0"
-    val skunk         = "0.6.3"
+    val skunk         = "0.6.4"
     val squants       = "1.8.3"
     val logback       = "1.5.6"
     val weaver        = "0.8.4"
@@ -61,8 +60,6 @@ object Dependencies {
     val monixNewtypesCirce = monixNewtypes("circe-v0-14")
 
     val log4cats = "org.typelevel" %% "log4cats-slf4j" % V.log4cats
-
-    //val javaxCrypto = "javax.xml.crypto" % "jsr105-api" % V.javaxCrypto
 
     val redis4catsEffects  = "dev.profunktor" %% "redis4cats-effects"  % V.redis4cats
     val redis4catsLog4cats = "dev.profunktor" %% "redis4cats-log4cats" % V.redis4cats

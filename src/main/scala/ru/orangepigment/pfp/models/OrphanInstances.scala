@@ -1,12 +1,12 @@
 package ru.orangepigment.pfp.models
 
-import cats.{ Eq, Show }
+import cats.{ Eq, Monoid, Show }
 import cats.syntax.contravariant.*
 import cats.syntax.either.*
 import dev.profunktor.auth.jwt.JwtToken
 import io.circe.Decoder.Result
 import io.circe.{ Decoder, DecodingFailure, Encoder, HCursor, Json }
-import squants.market.{ Currency, Money, defaultMoneyContext }
+import squants.market.{ Currency, Money, USD, defaultMoneyContext }
 
 object OrphanInstances {
 
@@ -30,6 +30,15 @@ object OrphanInstances {
           .leftMap(e => DecodingFailure(e.getMessage, c.history))
       }
     }
+
+  // Fixme: Must work with all currencies
+  given Monoid[Money] with {
+    def empty: Money = USD(0)
+    def combine(
+        x: Money,
+        y: Money
+    ): Money = x + y
+  }
 
   given currencyEq: Eq[Currency] =
     Eq.and(

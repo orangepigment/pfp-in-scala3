@@ -8,7 +8,7 @@ import org.http4s.dsl.Http4sDsl
 import org.http4s.server.{ AuthMiddleware, Router }
 import org.http4s.{ AuthedRoutes, HttpRoutes }
 import ru.orangepigment.pfp.models.CommonUser
-import ru.orangepigment.pfp.services.Auth
+import ru.orangepigment.pfp.services.auth.Auth
 
 final class LogoutRoutes[F[_]: Monad](
     auth: Auth[F]

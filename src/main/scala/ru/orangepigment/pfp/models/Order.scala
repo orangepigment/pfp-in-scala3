@@ -18,7 +18,7 @@ object PaymentId extends NewtypeWrapped[UUID] with DerivedCirceCodec {
 
 case class Order(
     id: OrderId,
-    pid: PaymentId,
+    paymentId: PaymentId,
     items: Map[ItemId, Quantity],
     total: Money
 ) derives Codec.AsObject

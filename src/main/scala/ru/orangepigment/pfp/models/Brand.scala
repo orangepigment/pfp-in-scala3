@@ -1,6 +1,6 @@
 package ru.orangepigment.pfp.models
 
-import io.circe.Encoder
+import io.circe.Codec
 import java.util.UUID
 import monix.newtypes.*
 import monix.newtypes.integrations.DerivedCirceCodec
@@ -11,4 +11,4 @@ object BrandId extends NewtypeWrapped[UUID] with DerivedCirceCodec
 type BrandName = BrandName.Type
 object BrandName extends NewtypeWrapped[String] with DerivedCirceCodec
 
-case class Brand(uuid: BrandId, name: BrandName) derives Encoder
+case class Brand(uuid: BrandId, name: BrandName) derives Codec.AsObject

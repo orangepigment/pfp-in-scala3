@@ -1,7 +1,8 @@
 package ru.orangepigment.pfp.models
 
-import cats.Show
+import cats.{ Eq, Show }
 import cats.derived.*
+import io.circe.Codec
 import io.github.iltotore.iron.constraint.string.*
 
 import java.util.UUID
@@ -14,7 +15,7 @@ object UserId extends NewtypeWrapped[UUID] with DerivedCirceCodec {
 }
 
 type UserName = UserName.Type
-object UserName extends NewtypeWrapped[String] {
+object UserName extends NewtypeWrapped[String] with DerivedCirceCodec {
   given show: Show[UserName] = derive
 }
 
@@ -22,15 +23,17 @@ type Password = Password.Type
 object Password extends NewtypeWrapped[String] with DerivedCirceCodec
 
 type EncryptedPassword = EncryptedPassword.Type
-object EncryptedPassword extends NewtypeWrapped[String]
+object EncryptedPassword extends NewtypeWrapped[String] with DerivedCirceCodec {
+  given eq: Eq[EncryptedPassword] = derive
+}
 
-case class User(id: UserId, name: UserName) derives Show
+case class User(id: UserId, name: UserName) derives Show, Codec.AsObject
 
 case class UserWithPassword(
     id: UserId,
     name: UserName,
     password: EncryptedPassword
-)
+) derives Codec.AsObject
 
 type CommonUser = CommonUser.Type
 object CommonUser extends NewtypeWrapped[User] {

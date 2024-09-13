@@ -1,5 +1,6 @@
 package ru.orangepigment.pfp.models
 
+import cats.Show
 import cats.syntax.either.*
 import io.circe.{ Codec, KeyDecoder, KeyEncoder }
 
@@ -20,6 +21,8 @@ object ItemId extends NewtypeWrapped[UUID] with DerivedCirceCodec {
   given keyEncoder: KeyEncoder[ItemId] = new KeyEncoder[ItemId] {
     def apply(key: ItemId): String = key.value.toString
   }
+
+  given show: Show[ItemId] = derive
 }
 
 type ItemName = ItemName.Type
@@ -35,9 +38,12 @@ case class Item(
     name: ItemName,
     description: ItemDescription,
     price: Money,
-    Item: Item,
+    brand: Brand,
     category: Category
-) derives Codec.AsObject
+) derives Codec.AsObject {
+  def cart(q: Quantity): CartItem =
+    CartItem(this, q)
+}
 
 case class CreateItem(
     name: ItemName,

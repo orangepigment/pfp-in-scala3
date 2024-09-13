@@ -12,7 +12,7 @@ import org.http4s.server.Router
 import ru.orangepigment.pfp.models.Errors.UserNameInUse
 import ru.orangepigment.pfp.models.OrphanInstances.given
 import ru.orangepigment.pfp.routes.params.CreateUser
-import ru.orangepigment.pfp.services.Auth
+import ru.orangepigment.pfp.services.auth.Auth
 import ru.orangepigment.pfp.util.http4s.RefinedRequestDecoder
 
 final class UserRoutes[F[_]: JsonDecoder: MonadThrow](
