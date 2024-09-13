@@ -9,7 +9,9 @@ import squants.market.Money
 import ru.orangepigment.pfp.models.OrphanInstances.given
 
 type OrderId = OrderId.Type
-object OrderId extends NewtypeWrapped[UUID] with DerivedCirceCodec
+object OrderId extends NewtypeWrapped[UUID] with DerivedCirceCodec {
+  given show: Show[OrderId] = derive
+}
 
 type PaymentId = PaymentId.Type
 object PaymentId extends NewtypeWrapped[UUID] with DerivedCirceCodec {

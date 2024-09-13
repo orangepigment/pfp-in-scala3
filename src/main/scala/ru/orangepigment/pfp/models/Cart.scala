@@ -1,6 +1,7 @@
 package ru.orangepigment.pfp.models
 
 import cats.Show
+import cats.derived.*
 import io.circe.{ Codec, Decoder }
 import monix.newtypes.*
 import monix.newtypes.integrations.DerivedCirceCodec
@@ -22,11 +23,11 @@ object Cart extends NewtypeWrapped[Map[ItemId, Quantity]] {
       .map(Cart.apply)
 }
 
-case class CartItem(item: Item, quantity: Quantity) derives Codec.AsObject {
+case class CartItem(item: Item, quantity: Quantity) derives Show, Codec.AsObject {
   def subTotal: Money = USD(item.price.amount * quantity.value)
 }
 
-case class CartTotal(items: List[CartItem], total: Money) derives Codec.AsObject
+case class CartTotal(items: List[CartItem], total: Money) derives Show, Codec.AsObject
 
 type ShoppingCartExpiration = ShoppingCartExpiration.Type
 object ShoppingCartExpiration extends NewtypeWrapped[FiniteDuration]

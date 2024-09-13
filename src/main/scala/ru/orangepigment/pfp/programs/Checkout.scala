@@ -1,7 +1,6 @@
 package ru.orangepigment.pfp.programs
 
 import scala.concurrent.duration.DurationInt
-
 import cats.MonadThrow
 import cats.data.NonEmptyList
 import cats.syntax.apply.*
@@ -12,14 +11,15 @@ import cats.syntax.flatMap.*
 import cats.syntax.show.*
 import org.typelevel.log4cats.Logger
 import retry.RetryPolicy
+import ru.orangepigment.pfp.clients.PaymentClient
 import ru.orangepigment.pfp.models.Errors.{ EmptyCartError, OrderError, PaymentError }
 import ru.orangepigment.pfp.models.{ Card, CartItem, CartTotal, OrderId, Payment, PaymentId, UserId }
-import ru.orangepigment.pfp.services.{ Orders, PaymentClient, ShoppingCart }
+import ru.orangepigment.pfp.services.{ Orders, ShoppingCart }
 import ru.orangepigment.pfp.util.Background
 import ru.orangepigment.pfp.util.retries.{ Retriable, Retry }
 import squants.market.Money
 
-final case class Checkout[F[_]: Background: Logger: MonadThrow: Retry](
+final class Checkout[F[_]: Background: Logger: MonadThrow: Retry](
     payments: PaymentClient[F],
     cart: ShoppingCart[F],
     orders: Orders[F],
