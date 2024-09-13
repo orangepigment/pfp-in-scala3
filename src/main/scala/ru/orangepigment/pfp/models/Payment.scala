@@ -48,4 +48,4 @@ case class Card(
 ) derives Show,
       Codec.AsObject
 
-case class Payment(id: UserId, total: Money, card: Card) derives Codec.AsObject
+case class Payment(id: UserId, total: Money, card: Card) derives Show, Codec.AsObject

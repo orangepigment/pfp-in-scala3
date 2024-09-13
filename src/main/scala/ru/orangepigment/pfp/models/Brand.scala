@@ -2,7 +2,7 @@ package ru.orangepigment.pfp.models
 
 import java.util.UUID
 
-import cats.Show
+import cats.{ Eq, Show }
 import cats.derived._
 import io.circe.Codec
 import monix.newtypes._
@@ -16,6 +16,7 @@ object BrandId extends NewtypeWrapped[UUID] with DerivedCirceCodec {
 type BrandName = BrandName.Type
 object BrandName extends NewtypeWrapped[String] with DerivedCirceCodec {
   given show: Show[BrandName] = derive
+  given eq: Eq[BrandName]     = derive
 }
 
 case class Brand(uuid: BrandId, name: BrandName) derives Show, Codec.AsObject

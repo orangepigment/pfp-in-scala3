@@ -135,6 +135,13 @@ object generators {
   val paymentIdGen: Gen[PaymentId] =
     idGen(PaymentId.apply)
 
+  val paymentGen: Gen[Payment] =
+    for {
+      i <- userIdGen
+      m <- moneyGen
+      c <- cardGen
+    } yield Payment(i, m, c)
+
   val orderIdGen: Gen[OrderId] =
     idGen(OrderId.apply)
 }
