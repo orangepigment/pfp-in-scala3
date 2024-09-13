@@ -1,17 +1,16 @@
 package ru.orangepigment.pfp.models
 
 import cats.Show
-import cats.derived.*
+import cats.derived._
 import io.circe.{ Codec, Decoder, Encoder }
-import io.github.iltotore.iron.*
-import io.github.iltotore.iron.constraint.numeric.*
-import io.github.iltotore.iron.constraint.string.*
+import io.github.iltotore.iron._
+import io.github.iltotore.iron.constraint.numeric._
+import io.github.iltotore.iron.constraint.string._
 import io.github.iltotore.iron.cats.given
 import io.github.iltotore.iron.circe.given
-import monix.newtypes.*
+import monix.newtypes._
 import monix.newtypes.integrations.DerivedCirceCodec
 import ru.orangepigment.pfp.models.OrphanInstances.given
-
 import squants.market.Money
 
 type CardHolderName = CardHolderName.Type

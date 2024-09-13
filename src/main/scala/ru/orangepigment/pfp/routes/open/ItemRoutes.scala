@@ -1,10 +1,10 @@
 package ru.orangepigment.pfp.routes.open
 
 import cats.Monad
-import io.github.iltotore.iron.*
+import io.github.iltotore.iron._
 import io.github.iltotore.iron.constraint.collection.Empty
 import org.http4s.HttpRoutes
-import org.http4s.circe.CirceEntityEncoder.*
+import org.http4s.circe.CirceEntityEncoder._
 import org.http4s.dsl.Http4sDsl
 import org.http4s.server.Router
 import ru.orangepigment.pfp.routes.params.BrandParam

@@ -1,8 +1,8 @@
 package ru.orangepigment.pfp.models
 
 import cats.{ Eq, Monoid, Show }
-import cats.syntax.contravariant.*
-import cats.syntax.either.*
+import cats.syntax.contravariant._
+import cats.syntax.either._
 import dev.profunktor.auth.jwt.JwtToken
 import io.circe.Decoder.Result
 import io.circe.{ Decoder, DecodingFailure, Encoder, HCursor, Json }

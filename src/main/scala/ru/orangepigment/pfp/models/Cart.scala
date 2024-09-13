@@ -1,14 +1,14 @@
 package ru.orangepigment.pfp.models
 
+import scala.concurrent.duration.FiniteDuration
+
 import cats.Show
-import cats.derived.*
+import cats.derived._
 import io.circe.{ Codec, Decoder }
-import monix.newtypes.*
+import monix.newtypes._
 import monix.newtypes.integrations.DerivedCirceCodec
 import squants.market.{ Money, USD }
 import ru.orangepigment.pfp.models.OrphanInstances.given
-
-import scala.concurrent.duration.FiniteDuration
 
 type Quantity = Quantity.Type
 object Quantity extends NewtypeWrapped[Int] with DerivedCirceCodec {

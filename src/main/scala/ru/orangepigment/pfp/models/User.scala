@@ -1,12 +1,12 @@
 package ru.orangepigment.pfp.models
 
-import cats.{ Eq, Show }
-import cats.derived.*
-import io.circe.Codec
-import io.github.iltotore.iron.constraint.string.*
-
 import java.util.UUID
-import monix.newtypes.*
+
+import cats.{ Eq, Show }
+import cats.derived._
+import io.circe.Codec
+import io.github.iltotore.iron.constraint.string._
+import monix.newtypes._
 import monix.newtypes.integrations.DerivedCirceCodec
 
 type UserId = UserId.Type

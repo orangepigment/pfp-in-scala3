@@ -1,13 +1,13 @@
 package ru.orangepigment.pfp.services
 
 import cats.effect.{ Concurrent, Resource }
-import cats.syntax.flatMap.*
-import cats.syntax.functor.*
+import cats.syntax.flatMap._
+import cats.syntax.functor._
 import ru.orangepigment.pfp.models.{ Brand, BrandName, Category, CreateItem, ID, Item, ItemId, UpdateItem }
 import ru.orangepigment.pfp.util.GenUUID
-import ru.orangepigment.pfp.util.sqlcodecs.*
-import skunk.*
-import skunk.implicits.*
+import ru.orangepigment.pfp.util.sqlcodecs._
+import skunk._
+import skunk.implicits._
 
 trait Items[F[_]] {
   def findAll: F[List[Item]]

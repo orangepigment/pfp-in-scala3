@@ -1,15 +1,15 @@
 package ru.orangepigment.pfp.routes.admin
 
 import cats.MonadThrow
-import cats.syntax.flatMap.*
+import cats.syntax.flatMap._
 import io.circe.JsonObject
-import io.circe.syntax.*
+import io.circe.syntax._
 import io.github.iltotore.iron.circe.given
 import org.http4s.circe.JsonDecoder
 import org.http4s.dsl.Http4sDsl
 import org.http4s.server.{ AuthMiddleware, Router }
 import org.http4s.{ AuthedRoutes, HttpRoutes }
-import org.http4s.circe.CirceEntityEncoder.*
+import org.http4s.circe.CirceEntityEncoder._
 import ru.orangepigment.pfp.models.AdminUser
 import ru.orangepigment.pfp.routes.params.BrandParam
 import ru.orangepigment.pfp.services.Brands

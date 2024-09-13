@@ -1,15 +1,15 @@
 package ru.orangepigment.pfp.routes.secured
 
+import java.util.UUID
+
 import cats.Monad
-import cats.syntax.either.*
-import org.http4s.circe.CirceEntityEncoder.*
+import cats.syntax.either._
+import org.http4s.circe.CirceEntityEncoder._
 import org.http4s.dsl.Http4sDsl
 import org.http4s.server.{ AuthMiddleware, Router }
 import org.http4s.{ AuthedRoutes, HttpRoutes }
 import ru.orangepigment.pfp.models.{ CommonUser, OrderId }
 import ru.orangepigment.pfp.services.Orders
-
-import java.util.UUID
 
 final class OrderRoutes[F[_]: Monad](
     orders: Orders[F]

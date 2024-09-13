@@ -1,8 +1,8 @@
 package ru.orangepigment.pfp.routes.user
 
 import cats.Monad
-import cats.syntax.apply.*
-import cats.syntax.foldable.*
+import cats.syntax.apply._
+import cats.syntax.foldable._
 import dev.profunktor.auth.AuthHeaders
 import org.http4s.dsl.Http4sDsl
 import org.http4s.server.{ AuthMiddleware, Router }

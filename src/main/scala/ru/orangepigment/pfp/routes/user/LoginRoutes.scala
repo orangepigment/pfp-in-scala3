@@ -1,10 +1,10 @@
 package ru.orangepigment.pfp.routes.user
 
 import cats.MonadThrow
-import cats.syntax.applicativeError.*
-import cats.syntax.flatMap.*
+import cats.syntax.applicativeError._
+import cats.syntax.flatMap._
 import org.http4s.HttpRoutes
-import org.http4s.circe.CirceEntityEncoder.*
+import org.http4s.circe.CirceEntityEncoder._
 import org.http4s.circe.JsonDecoder
 import org.http4s.dsl.Http4sDsl
 import org.http4s.server.Router

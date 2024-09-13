@@ -1,9 +1,10 @@
 package ru.orangepigment.pfp.models
 
 import java.util.UUID
+
 import cats.Show
 import io.circe.{ Codec, Decoder, Encoder }
-import monix.newtypes.*
+import monix.newtypes._
 import monix.newtypes.integrations.DerivedCirceCodec
 import squants.market.Money
 import ru.orangepigment.pfp.models.OrphanInstances.given

@@ -1,8 +1,9 @@
 package ru.orangepigment.pfp.models
 
 import scala.util.control.NoStackTrace
+
 import cats.{ Eq, Show }
-import cats.derived.*
+import cats.derived._
 import io.circe.Codec
 
 object Errors {

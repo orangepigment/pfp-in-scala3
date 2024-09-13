@@ -1,13 +1,13 @@
 package ru.orangepigment.pfp.util.http4s
 
 import cats.MonadThrow
-import cats.syntax.applicativeError.*
-import cats.syntax.flatMap.*
-import cats.syntax.either.*
+import cats.syntax.applicativeError._
+import cats.syntax.flatMap._
+import cats.syntax.either._
 import io.circe.Decoder
-import io.github.iltotore.iron.*
+import io.github.iltotore.iron._
 import monix.newtypes.HasBuilder
-import org.http4s.circe.*
+import org.http4s.circe._
 import org.http4s.circe.JsonDecoder
 import org.http4s.dsl.Http4sDsl
 import org.http4s.{ ParseFailure, QueryParamDecoder, Request, Response }

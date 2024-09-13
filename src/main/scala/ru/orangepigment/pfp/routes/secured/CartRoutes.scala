@@ -1,19 +1,19 @@
 package ru.orangepigment.pfp.routes.secured
 
+import java.util.UUID
+
 import cats.Monad
-import cats.syntax.apply.*
-import cats.syntax.either.*
-import cats.syntax.flatMap.*
-import cats.syntax.traverse.*
-import org.http4s.circe.CirceEntityEncoder.*
-import org.http4s.circe.*
+import cats.syntax.apply._
+import cats.syntax.either._
+import cats.syntax.flatMap._
+import cats.syntax.traverse._
+import org.http4s.circe.CirceEntityEncoder._
+import org.http4s.circe._
 import org.http4s.dsl.Http4sDsl
 import org.http4s.server.{ AuthMiddleware, Router }
 import org.http4s.{ AuthedRoutes, HttpRoutes }
 import ru.orangepigment.pfp.models.{ Cart, CommonUser, ItemId }
 import ru.orangepigment.pfp.services.ShoppingCart
-
-import java.util.UUID
 
 final class CartRoutes[F[_]: JsonDecoder: Monad](
     shoppingCart: ShoppingCart[F]

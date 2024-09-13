@@ -1,10 +1,11 @@
 package ru.orangepigment.pfp.models
 
-import cats.Show
-import cats.derived.*
-import io.circe.Codec
 import java.util.UUID
-import monix.newtypes.*
+
+import cats.Show
+import cats.derived._
+import io.circe.Codec
+import monix.newtypes._
 import monix.newtypes.integrations.DerivedCirceCodec
 
 type BrandId = BrandId.Type

@@ -1,9 +1,9 @@
 package ru.orangepigment.pfp.util
 
+import java.util.UUID
+
 import cats.ApplicativeThrow
 import cats.effect.Sync
-
-import java.util.UUID
 
 trait GenUUID[F[_]] {
   def make: F[UUID]

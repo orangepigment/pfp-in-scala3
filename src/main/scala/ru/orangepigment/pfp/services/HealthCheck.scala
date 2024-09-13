@@ -1,18 +1,19 @@
 package ru.orangepigment.pfp.services
 
+import scala.concurrent.duration.DurationInt
+
 import cats.effect.{ Resource, Temporal }
-import cats.effect.implicits.*
-import cats.effect.syntax.temporal.*
-import cats.syntax.applicative.*
-import cats.syntax.applicativeError.*
-import cats.syntax.functor.*
-import cats.syntax.parallel.*
+import cats.effect.implicits._
+import cats.effect.syntax.temporal._
+import cats.syntax.applicative._
+import cats.syntax.applicativeError._
+import cats.syntax.functor._
+import cats.syntax.parallel._
 import dev.profunktor.redis4cats.RedisCommands
 import ru.orangepigment.pfp.models.{ AppStatus, PostgresStatus, RedisStatus, Status }
-import skunk.*
-import skunk.codec.all.*
-import skunk.implicits.*
-import scala.concurrent.duration.DurationInt
+import skunk._
+import skunk.codec.all._
+import skunk.implicits._
 
 trait HealthCheck[F[_]] {
   def status: F[AppStatus]
