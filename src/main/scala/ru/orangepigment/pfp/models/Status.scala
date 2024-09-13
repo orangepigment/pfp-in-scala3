@@ -1,5 +1,7 @@
 package ru.orangepigment.pfp.models
 
+import cats.Eq
+import cats.derived._
 import io.circe.Encoder
 import monix.newtypes._
 import monix.newtypes.integrations.DerivedCirceCodec
@@ -18,7 +20,7 @@ case class AppStatus(
     postgres: PostgresStatus
 ) derives Encoder
 
-enum Status {
+enum Status derives Eq {
   case Okay
   case Unreachable
 }

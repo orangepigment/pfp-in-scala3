@@ -11,6 +11,7 @@ import monix.newtypes.integrations.DerivedCirceCodec
 type BrandId = BrandId.Type
 object BrandId extends NewtypeWrapped[UUID] with DerivedCirceCodec {
   given show: Show[BrandId] = derive
+  given eq: Eq[BrandId]     = derive
 }
 
 type BrandName = BrandName.Type

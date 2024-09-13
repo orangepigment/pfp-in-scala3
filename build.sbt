@@ -42,7 +42,10 @@ lazy val root = (project in file("."))
       Libraries.skunkCirce,
       Libraries.squants,
       Libraries.weaverCats % Test,
-      Libraries.weaverScalaCheck % Test
+      Libraries.weaverScalaCheck % Test,
+      Libraries.weaverDiscipline % Test,
+      Libraries.catsLaws % Test,
+      Libraries.monocleLaw % Test
     )
   )
 
