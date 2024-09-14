@@ -49,4 +49,4 @@ lazy val root = (project in file("."))
     )
   )
 
-addCommandAlias("lint", ";scalafmtAll ;scalafixAll --rules OrganizeImports")
+addCommandAlias("lint", ";scalafixAll --rules OrganizeImports ;scalafmtAll")

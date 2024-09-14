@@ -3,7 +3,7 @@ package ru.orangepigment.pfp.routes
 import cats.effect.IO
 import cats.syntax.eq._
 import org.http4s.Method.GET
-import org.http4s.{Status => HttpStatus}
+import org.http4s.{ Status => HttpStatus }
 import org.http4s.client.dsl.io._
 import org.http4s.implicits._
 import org.scalacheck.Gen

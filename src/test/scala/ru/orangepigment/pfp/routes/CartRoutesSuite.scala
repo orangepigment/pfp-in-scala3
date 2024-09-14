@@ -4,7 +4,7 @@ import cats.data.Kleisli
 import cats.effect.IO
 import org.http4s.Method.{ GET, POST }
 import org.http4s.implicits._
-import org.http4s.{Status => HttpStatus}
+import org.http4s.{ Status => HttpStatus }
 import org.http4s.circe.CirceEntityEncoder._
 import org.http4s.client.dsl.io._
 import org.http4s.server.AuthMiddleware
