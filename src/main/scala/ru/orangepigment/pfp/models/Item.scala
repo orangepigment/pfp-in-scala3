@@ -2,7 +2,7 @@ package ru.orangepigment.pfp.models
 
 import java.util.UUID
 
-import cats.Show
+import cats.{ Eq, Show }
 import cats.derived._
 import cats.syntax.either._
 import io.circe.{ Codec, KeyDecoder, KeyEncoder }
@@ -29,6 +29,7 @@ object ItemId extends NewtypeWrapped[UUID] with DerivedCirceCodec {
 type ItemName = ItemName.Type
 object ItemName extends NewtypeWrapped[String] with DerivedCirceCodec {
   given show: Show[ItemName] = derive
+  given eq: Eq[ItemName]     = derive
 }
 
 type ItemDescription = ItemDescription.Type

@@ -12,6 +12,7 @@ import monix.newtypes.integrations.DerivedCirceCodec
 type UserId = UserId.Type
 object UserId extends NewtypeWrapped[UUID] with DerivedCirceCodec {
   given show: Show[UserId] = derive
+  given eq: Eq[UserId]     = derive
 }
 
 type UserName = UserName.Type
@@ -24,7 +25,8 @@ object Password extends NewtypeWrapped[String] with DerivedCirceCodec
 
 type EncryptedPassword = EncryptedPassword.Type
 object EncryptedPassword extends NewtypeWrapped[String] with DerivedCirceCodec {
-  given eq: Eq[EncryptedPassword] = derive
+  given show: Show[EncryptedPassword] = derive
+  given eq: Eq[EncryptedPassword]     = derive
 }
 
 case class User(id: UserId, name: UserName) derives Show, Codec.AsObject
