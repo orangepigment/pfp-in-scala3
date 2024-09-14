@@ -2,7 +2,7 @@ package ru.orangepigment.pfp.models
 
 import scala.concurrent.duration.FiniteDuration
 
-import cats.Show
+import cats.{ Eq, Show }
 import cats.derived._
 import io.circe.{ Codec, Decoder, Encoder }
 import monix.newtypes._
@@ -13,6 +13,7 @@ import ru.orangepigment.pfp.models.OrphanInstances.given
 type Quantity = Quantity.Type
 object Quantity extends NewtypeWrapped[Int] with DerivedCirceCodec {
   given show: Show[Quantity] = derive
+  given eq: Eq[Quantity]     = derive
 }
 
 type Cart = Cart.Type
