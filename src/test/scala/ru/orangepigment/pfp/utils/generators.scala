@@ -126,6 +126,9 @@ object generators {
   val encryptedPasswordGen: Gen[EncryptedPassword] =
     nesGen(EncryptedPassword.apply)
 
+  val passwordGen: Gen[Password] =
+    nesGen(Password.apply)
+
   val userGen: Gen[User] =
     for {
       i <- userIdGen

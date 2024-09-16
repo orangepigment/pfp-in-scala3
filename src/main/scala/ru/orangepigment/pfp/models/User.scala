@@ -18,10 +18,13 @@ object UserId extends NewtypeWrapped[UUID] with DerivedCirceCodec {
 type UserName = UserName.Type
 object UserName extends NewtypeWrapped[String] with DerivedCirceCodec {
   given show: Show[UserName] = derive
+  given eq: Eq[UserName]     = derive
 }
 
 type Password = Password.Type
-object Password extends NewtypeWrapped[String] with DerivedCirceCodec
+object Password extends NewtypeWrapped[String] with DerivedCirceCodec {
+  given show: Show[Password] = derive
+}
 
 type EncryptedPassword = EncryptedPassword.Type
 object EncryptedPassword extends NewtypeWrapped[String] with DerivedCirceCodec {

@@ -1,30 +1,37 @@
 package ru.orangepigment.pfp.database
 
+import java.util.UUID
+
 import scala.concurrent.duration.DurationInt
 
 import cats.effect.kernel.Ref
 import cats.effect.{ IO, Resource }
+import cats.syntax.alternative._
 import cats.syntax.eq._
+import cats.syntax.functor._
+import dev.profunktor.auth.jwt.{ JwtAuth, JwtToken, jwtDecode }
 import dev.profunktor.redis4cats.log4cats._
 import dev.profunktor.redis4cats.{ Redis, RedisCommands }
+import io.github.iltotore.iron._
 import org.typelevel.log4cats.Logger
 import org.typelevel.log4cats.noop.NoOpLogger
-import ru.orangepigment.pfp.models.{
-  Brand,
-  BrandName,
-  Cart,
-  Category,
-  CategoryName,
-  CreateItem,
-  ID,
-  Item,
-  ItemId,
-  ShoppingCartExpiration,
-  UpdateItem
+import pdi.jwt.{ JwtAlgorithm, JwtClaim }
+import ru.orangepigment.pfp.conf.JwtSecretKeyConfig
+import ru.orangepigment.pfp.models._
+import ru.orangepigment.pfp.models.Errors.{ InvalidPassword, UserNotFound }
+import ru.orangepigment.pfp.services.auth.{
+  Auth,
+  Crypto,
+  JwtExpire,
+  PasswordSalt,
+  TokenExpiration,
+  Tokens,
+  UserJwtAuth,
+  UsersAuth
 }
-import ru.orangepigment.pfp.services.{ Items, ShoppingCart }
+import ru.orangepigment.pfp.services.{ Items, ShoppingCart, Users }
 import ru.orangepigment.pfp.utils.ResourceSuite
-import ru.orangepigment.pfp.utils.generators.{ itemGen, quantityGen, userIdGen }
+import ru.orangepigment.pfp.utils.generators.{ itemGen, passwordGen, quantityGen, userIdGen, userNameGen }
 
 object RedisSuite extends ResourceSuite {
   given Logger[IO] = NoOpLogger[IO]
@@ -36,13 +43,13 @@ object RedisSuite extends ResourceSuite {
       .utf8("redis://localhost")
       .beforeAll(_.flushAll)
 
-  val expiration = ShoppingCartExpiration(30.seconds)
-  /*val tokenConfig = JwtSecretKeyConfig("bar")
-  val tokenExp = TokenExpiration(30.seconds)
-  val jwtClaim = JwtClaim("test")
+  val expiration  = ShoppingCartExpiration(30.seconds)
+  val tokenConfig = JwtSecretKeyConfig("bar")
+  val tokenExp    = TokenExpiration(30.seconds)
+  val jwtClaim    = JwtClaim("test")
   val userJwtAuth = UserJwtAuth(
     JwtAuth.hmac("bar", JwtAlgorithm.HS256)
-  )*/
+  )
 
   test("Shopping Cart") { redis =>
     val gen = for {
@@ -76,6 +83,42 @@ object RedisSuite extends ResourceSuite {
           w.items.headOption.fold(false)(_.quantity === q2)
         )
       }
+    }
+  }
+
+  test("Authentication") { redis =>
+    val gen = for {
+      un1 <- userNameGen
+      un2 <- userNameGen
+      pw  <- passwordGen
+    } yield (un1, un2, pw)
+    forall(gen) { case (un1, un2, pw) =>
+      for {
+        t <- JwtExpire.make[IO].map {
+          Tokens.make[IO](_, tokenConfig, tokenExp)
+        }
+        c <- Crypto.make[IO](PasswordSalt("test".refineUnsafe))
+        a = Auth.make(tokenExp, t, new TestUsers(un2), redis, c)
+        u = UsersAuth.common[IO](redis)
+        x <- u.findUser(JwtToken("invalid"))(jwtClaim)
+        y <- a.login(un1, pw).attempt
+        j <- a.newUser(un1, pw)
+        e <- jwtDecode[IO](j, userJwtAuth.value).attempt
+        k <- a.login(un2, pw).attempt
+        w <- u.findUser(j)(jwtClaim)
+        _ <- a.logout(j, un1)
+        s <- redis.get(j.value)
+        _ <- a.logout(j, un1)
+        z <- redis.get(j.value)
+      } yield expect.all(
+        x.isEmpty,
+        y == Left(UserNotFound(un1)),
+        e.isRight,
+        k == Left(InvalidPassword(un2)),
+        w.fold(false)(_.value.name === un1),
+        s.nonEmpty,
+        z.isEmpty
+      )
     }
   }
 
@@ -114,6 +157,26 @@ object RedisSuite extends ResourceSuite {
           x.updated(item.id, i.copy(price = item.price))
         }
       }
+  }
+
+  class TestUsers(un: UserName) extends Users[IO] {
+    def find(username: UserName): IO[Option[UserWithPassword]] = IO.pure {
+      (username === un)
+        .guard[Option]
+        .as {
+          UserWithPassword(
+            UserId(UUID.randomUUID),
+            un,
+            EncryptedPassword("foo")
+          )
+        }
+    }
+
+    def create(
+        username: UserName,
+        password: EncryptedPassword
+    ): IO[UserId] =
+      ID.make[IO, UserId]
   }
 
 }
