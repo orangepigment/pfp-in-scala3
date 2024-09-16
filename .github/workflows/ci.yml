@@ -1,0 +1,25 @@
+name: Scala
+on:
+  pull_request: { }
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: olafurpg/setup-scala@v14
+        with:
+          java-version: graalvm@22.0.2
+
+      - name: Starting up Postgres & Redis
+        run: docker-compose up -d
+
+      - name: Tests
+        run: sbt 'test' # ;it:test
+
+      - name: Shutting down Postgres & Redis
+        run: docker-compose down

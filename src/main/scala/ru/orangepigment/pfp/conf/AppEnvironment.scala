@@ -10,6 +10,6 @@ enum AppEnvironment:
 object AppEnvironment {
   given ConfigDecoder[String, AppEnvironment] =
     ConfigDecoder[String].mapOption("ru.orangepigment.pfp.conf.AppEnvironment")(s =>
-      Either.catchNonFatal(AppEnvironment.valueOf(s)).toOption
+      Either.catchNonFatal(AppEnvironment.valueOf(s.toLowerCase.capitalize)).toOption
     )
 }

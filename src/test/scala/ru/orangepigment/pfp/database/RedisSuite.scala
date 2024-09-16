@@ -95,7 +95,6 @@ object RedisSuite extends ResourceSuite {
         e <- jwtDecode[IO](j, userJwtAuth.value).attempt
         k <- a.login(un2, pw).attempt
         w <- u.findUser(j)(jwtClaim)
-        _ <- a.logout(j, un1)
         s <- redis.get(j.value)
         _ <- a.logout(j, un1)
         z <- redis.get(j.value)

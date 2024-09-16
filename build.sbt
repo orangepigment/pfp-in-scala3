@@ -10,8 +10,15 @@ ThisBuild / evictionErrorLevel := Level.Warn
 Global / semanticdbEnabled := true
 
 lazy val root = (project in file("."))
+  .enablePlugins(DockerPlugin)
+  .enablePlugins(AshScriptPlugin)
   .settings(
     name := "pfp-in-scala3",
+    Docker / packageName  := "shopping-cart",
+    dockerBaseImage  := "openjdk:11-jre-slim-buster",
+    makeBatScripts  := Seq.empty,
+    dockerExposedPorts  ++= Seq(8080),
+    dockerUpdateLatest  := true,
     scalafmtOnCompile := true,
     libraryDependencies ++= Seq(
       Libraries.cats,
