@@ -1,9 +1,7 @@
 package ru.orangepigment.pfp.database
 
 import java.util.UUID
-
 import scala.concurrent.duration.DurationInt
-
 import cats.effect.kernel.Ref
 import cats.effect.{ IO, Resource }
 import cats.syntax.alternative.*
@@ -16,7 +14,7 @@ import io.github.iltotore.iron.*
 import org.typelevel.log4cats.Logger
 import org.typelevel.log4cats.noop.NoOpLogger
 import pdi.jwt.{ JwtAlgorithm, JwtClaim }
-import ru.orangepigment.pfp.conf.{ JwtSecretKeyConfig, PasswordSalt }
+import ru.orangepigment.pfp.conf.{ JwtAccessTokenKeyConfig, PasswordSalt }
 import ru.orangepigment.pfp.models.*
 import ru.orangepigment.pfp.models.Errors.{ InvalidPassword, UserNotFound }
 import ru.orangepigment.pfp.services.auth.{ Auth, Crypto, JwtExpire, TokenExpiration, Tokens, UserJwtAuth, UsersAuth }
@@ -35,7 +33,7 @@ object RedisSuite extends ResourceSuite {
       .beforeAll(_.flushAll)
 
   val expiration  = ShoppingCartExpiration(30.seconds)
-  val tokenConfig = JwtSecretKeyConfig("bar")
+  val tokenConfig = JwtAccessTokenKeyConfig("bar")
   val tokenExp    = TokenExpiration(30.seconds)
   val jwtClaim    = JwtClaim("test")
   val userJwtAuth = UserJwtAuth(

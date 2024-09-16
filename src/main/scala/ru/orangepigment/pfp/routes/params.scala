@@ -1,7 +1,6 @@
 package ru.orangepigment.pfp.routes
 
 import java.util.UUID
-
 import io.circe.Codec
 import io.github.iltotore.iron.*
 import io.github.iltotore.iron.constraint.collection.*
@@ -13,6 +12,7 @@ import ru.orangepigment.pfp.models.{
   BrandId,
   BrandName,
   CategoryId,
+  CategoryName,
   CreateItem,
   ItemDescription,
   ItemId,
@@ -59,6 +59,14 @@ object params {
     extension (b: BrandParam.Type) {
       def toDomain: BrandName =
         BrandName(value.toString().toLowerCase.capitalize)
+    }
+  }
+
+  type CategoryParam = CategoryParam.Type
+  object CategoryParam extends NewtypeWrapped[String :| Not[Empty]] with DerivedCirceCodec with NewtypeParamDecoder {
+    extension (b: CategoryParam.Type) {
+      def toDomain: CategoryName =
+        CategoryName(value.toString().toLowerCase.capitalize)
     }
   }
 

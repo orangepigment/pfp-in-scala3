@@ -16,7 +16,7 @@ trait Tokens[F[_]] {
 object Tokens {
   def make[F[_]: GenUUID: Monad](
       jwtExpire: JwtExpire[F],
-      config: JwtSecretKeyConfig,
+      config: JwtAccessTokenKeyConfig,
       exp: TokenExpiration
   ): Tokens[F] =
     new Tokens[F] {

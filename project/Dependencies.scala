@@ -9,7 +9,7 @@ object Dependencies {
     val circe         = "0.14.10"
     val ciris         = "3.6.0"
     val fs2           = "3.10.2"
-    val http4s        = "0.23.7"
+    val http4s        = "0.23.28"
     val http4sJwtAuth = "1.2.3"
     val iron          = "2.6.0"
     val kittens       = "3.3.0"
