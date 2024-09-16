@@ -16,19 +16,10 @@ import io.github.iltotore.iron.*
 import org.typelevel.log4cats.Logger
 import org.typelevel.log4cats.noop.NoOpLogger
 import pdi.jwt.{ JwtAlgorithm, JwtClaim }
-import ru.orangepigment.pfp.conf.JwtSecretKeyConfig
+import ru.orangepigment.pfp.conf.{ JwtSecretKeyConfig, PasswordSalt }
 import ru.orangepigment.pfp.models.*
 import ru.orangepigment.pfp.models.Errors.{ InvalidPassword, UserNotFound }
-import ru.orangepigment.pfp.services.auth.{
-  Auth,
-  Crypto,
-  JwtExpire,
-  PasswordSalt,
-  TokenExpiration,
-  Tokens,
-  UserJwtAuth,
-  UsersAuth
-}
+import ru.orangepigment.pfp.services.auth.{ Auth, Crypto, JwtExpire, TokenExpiration, Tokens, UserJwtAuth, UsersAuth }
 import ru.orangepigment.pfp.services.{ Items, ShoppingCart, Users }
 import ru.orangepigment.pfp.utils.ResourceSuite
 import ru.orangepigment.pfp.utils.generators.{ itemGen, passwordGen, quantityGen, userIdGen, userNameGen }

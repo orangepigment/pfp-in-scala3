@@ -7,6 +7,7 @@ import javax.crypto.{ Cipher, SecretKeyFactory }
 
 import cats.effect.Sync
 import cats.syntax.all.*
+import ru.orangepigment.pfp.conf.PasswordSalt
 import ru.orangepigment.pfp.models.{ EncryptedPassword, Password }
 
 trait Crypto {

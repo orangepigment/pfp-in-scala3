@@ -42,6 +42,7 @@ object Dependencies {
     val circeParser  = circe("parser")
 
     val cirisCore    = ciris("ciris")
+    val cirisCirce    = ciris("ciris-circe")
 
     val http4sDsl    = http4s("dsl")
     val http4sServer = http4s("ember-server")

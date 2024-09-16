@@ -22,6 +22,7 @@ lazy val root = (project in file("."))
       Libraries.circeGeneric,
       Libraries.circeParser,
       Libraries.cirisCore,
+      Libraries.cirisCirce,
       Libraries.fs2,
       Libraries.http4sDsl,
       Libraries.http4sServer,
