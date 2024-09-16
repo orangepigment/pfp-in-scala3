@@ -1,7 +1,7 @@
 package ru.orangepigment.pfp.conf
 
-import io.github.iltotore.iron._
-import io.github.iltotore.iron.constraint.collection._
+import io.github.iltotore.iron.*
+import io.github.iltotore.iron.constraint.collection.*
 import monix.newtypes.NewtypeWrapped
 
 type PaymentURI = PaymentURI.Type

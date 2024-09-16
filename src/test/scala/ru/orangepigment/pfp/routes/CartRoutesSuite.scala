@@ -3,10 +3,10 @@ package ru.orangepigment.pfp.routes
 import cats.data.Kleisli
 import cats.effect.IO
 import org.http4s.Method.{ GET, POST }
-import org.http4s.implicits._
+import org.http4s.implicits.*
 import org.http4s.{ Status => HttpStatus }
-import org.http4s.circe.CirceEntityEncoder._
-import org.http4s.client.dsl.io._
+import org.http4s.circe.CirceEntityEncoder.*
+import org.http4s.client.dsl.io.*
 import org.http4s.server.AuthMiddleware
 import ru.orangepigment.pfp.models.{ Cart, CartTotal, CommonUser, ItemId, Quantity, UserId }
 import ru.orangepigment.pfp.routes.secured.CartRoutes

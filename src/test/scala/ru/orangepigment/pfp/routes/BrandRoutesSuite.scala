@@ -3,8 +3,8 @@ package ru.orangepigment.pfp.routes
 import cats.effect.IO
 import org.http4s.{ Status => HttpStatus }
 import org.http4s.Method.GET
-import org.http4s.client.dsl.io._
-import org.http4s.implicits._
+import org.http4s.client.dsl.io.*
+import org.http4s.implicits.*
 import org.scalacheck.Gen
 import ru.orangepigment.pfp.models.{ Brand, BrandId, BrandName }
 import ru.orangepigment.pfp.routes.open.BrandRoutes

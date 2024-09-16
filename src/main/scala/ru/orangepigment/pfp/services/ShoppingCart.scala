@@ -1,12 +1,12 @@
 package ru.orangepigment.pfp.services
 
 import cats.MonadThrow
-import cats.syntax.apply._
-import cats.syntax.flatMap._
-import cats.syntax.foldable._
-import cats.syntax.functor._
-import cats.syntax.show._
-import cats.syntax.traverseFilter._
+import cats.syntax.apply.*
+import cats.syntax.flatMap.*
+import cats.syntax.foldable.*
+import cats.syntax.functor.*
+import cats.syntax.show.*
+import cats.syntax.traverseFilter.*
 import dev.profunktor.redis4cats.RedisCommands
 import ru.orangepigment.pfp.models.{ Cart, CartTotal, ID, ItemId, Quantity, ShoppingCartExpiration, UserId }
 import ru.orangepigment.pfp.util.GenUUID

@@ -1,10 +1,10 @@
 package ru.orangepigment.pfp.util.retries
 
 import cats.effect.Temporal
-import cats.syntax.show._
+import cats.syntax.show.*
 import org.typelevel.log4cats.Logger
-import retry.RetryDetails._
-import retry._
+import retry.RetryDetails.*
+import retry.*
 
 trait Retry[F[_]] {
   def retry[A](

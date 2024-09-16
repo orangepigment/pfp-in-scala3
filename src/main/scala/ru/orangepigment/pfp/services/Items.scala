@@ -1,13 +1,13 @@
 package ru.orangepigment.pfp.services
 
 import cats.effect.{ Concurrent, Resource }
-import cats.syntax.flatMap._
-import cats.syntax.functor._
+import cats.syntax.flatMap.*
+import cats.syntax.functor.*
 import ru.orangepigment.pfp.models.{ Brand, BrandName, Category, CreateItem, ID, Item, ItemId, UpdateItem }
 import ru.orangepigment.pfp.util.GenUUID
-import ru.orangepigment.pfp.util.sqlcodecs._
-import skunk._
-import skunk.implicits._
+import ru.orangepigment.pfp.util.sqlcodecs.*
+import skunk.*
+import skunk.implicits.*
 
 trait Items[F[_]] {
   def findAll: F[List[Item]]
@@ -28,7 +28,7 @@ object Items {
   ): Items[F] =
     new Items[F] {
 
-      import ItemSQL._
+      import ItemSQL.*
 
       def findAll: F[List[Item]] =
         postgres.use(_.execute(selectAll))

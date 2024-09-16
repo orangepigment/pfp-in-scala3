@@ -1,16 +1,16 @@
 package ru.orangepigment.pfp.services
 
 import cats.effect.{ MonadCancelThrow, Resource }
-import cats.syntax.applicativeError._
-import cats.syntax.functor._
-import cats.syntax.flatMap._
-import cats.syntax.option._
+import cats.syntax.applicativeError.*
+import cats.syntax.functor.*
+import cats.syntax.flatMap.*
+import cats.syntax.option.*
 import ru.orangepigment.pfp.models.Errors.UserNameInUse
 import ru.orangepigment.pfp.models.{ EncryptedPassword, ID, User, UserId, UserName, UserWithPassword }
 import ru.orangepigment.pfp.util.GenUUID
-import ru.orangepigment.pfp.util.sqlcodecs._
-import skunk._
-import skunk.implicits._
+import ru.orangepigment.pfp.util.sqlcodecs.*
+import skunk.*
+import skunk.implicits.*
 
 trait Users[F[_]] {
   def find(
@@ -29,7 +29,7 @@ object Users {
   ): Users[F] =
     new Users[F] {
 
-      import UserSQL._
+      import UserSQL.*
 
       def find(username: UserName): F[Option[UserWithPassword]] =
         postgres.use { session =>

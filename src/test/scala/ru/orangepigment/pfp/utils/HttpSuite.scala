@@ -3,11 +3,11 @@ package ru.orangepigment.pfp.utils
 import scala.util.control.NoStackTrace
 
 import cats.effect.IO
-import cats.implicits._
-import io.circe._
-import io.circe.syntax._
+import cats.implicits.*
+import io.circe.*
+import io.circe.syntax.*
 import org.http4s.{ Status => HttpStatus, _ }
-import org.http4s.circe._
+import org.http4s.circe.*
 import weaver.scalacheck.Checkers
 import weaver.{ Expectations, SimpleIOSuite }
 

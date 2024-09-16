@@ -2,9 +2,9 @@ package ru.orangepigment.pfp.utils
 
 import java.util.UUID
 
-import io.github.iltotore.iron._
+import io.github.iltotore.iron.*
 import org.scalacheck.Gen
-import ru.orangepigment.pfp.models._
+import ru.orangepigment.pfp.models.*
 import squants.market.{ Money, USD }
 
 object generators {

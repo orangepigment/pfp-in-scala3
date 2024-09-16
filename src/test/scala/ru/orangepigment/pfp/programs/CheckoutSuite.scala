@@ -1,27 +1,27 @@
 package ru.orangepigment.pfp.programs
 
-import scala.concurrent.duration._
+import scala.concurrent.duration.*
 import scala.util.control.NoStackTrace
 
 import cats.data.NonEmptyList
 import cats.effect.IO
 import cats.effect.kernel.Ref
-import cats.syntax.apply._
-import cats.syntax.eq._
-import cats.syntax.semigroup._
+import cats.syntax.apply.*
+import cats.syntax.eq.*
+import cats.syntax.semigroup.*
 import org.typelevel.log4cats.Logger
 import org.typelevel.log4cats.noop.NoOpLogger
 import retry.RetryDetails.{ GivingUp, WillDelayAndRetry }
 import retry.RetryPolicies.limitRetries
 import retry.RetryPolicy
 import ru.orangepigment.pfp.clients.PaymentClient
-import ru.orangepigment.pfp.models._
+import ru.orangepigment.pfp.models.*
 import ru.orangepigment.pfp.models.Errors.{ EmptyCartError, OrderError, PaymentError }
 import ru.orangepigment.pfp.services.{ Orders, ShoppingCart }
 import ru.orangepigment.pfp.util.Background
 import ru.orangepigment.pfp.util.retries.Retry
 import ru.orangepigment.pfp.utils.{ TestBackground, TestRetry }
-import ru.orangepigment.pfp.utils.generators._
+import ru.orangepigment.pfp.utils.generators.*
 import squants.market.{ Money, USD }
 import weaver.SimpleIOSuite
 import weaver.scalacheck.Checkers

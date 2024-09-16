@@ -2,15 +2,15 @@ package ru.orangepigment.pfp.services
 
 import cats.data.NonEmptyList
 import cats.effect.{ Concurrent, Resource }
-import cats.syntax.functor._
-import cats.syntax.flatMap._
+import cats.syntax.functor.*
+import cats.syntax.flatMap.*
 import ru.orangepigment.pfp.models.{ CartItem, ID, ItemId, Order, OrderId, PaymentId, Quantity, UserId }
 import squants.market.Money
 import ru.orangepigment.pfp.util.GenUUID
-import ru.orangepigment.pfp.util.sqlcodecs._
-import skunk._
-import skunk.circe.codec.all._
-import skunk.implicits._
+import ru.orangepigment.pfp.util.sqlcodecs.*
+import skunk.*
+import skunk.circe.codec.all.*
+import skunk.implicits.*
 
 trait Orders[F[_]] {
   def get(
@@ -33,7 +33,7 @@ object Orders {
       postgres: Resource[F, Session[F]]
   ): Orders[F] =
     new Orders[F] {
-      import OrderSQL._
+      import OrderSQL.*
 
       def get(userId: UserId, orderId: OrderId): F[Option[Order]] =
         postgres.use { session =>

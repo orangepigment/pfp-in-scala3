@@ -6,7 +6,7 @@ import javax.crypto.spec.{ IvParameterSpec, PBEKeySpec, SecretKeySpec }
 import javax.crypto.{ Cipher, SecretKeyFactory }
 
 import cats.effect.Sync
-import cats.syntax.all._
+import cats.syntax.all.*
 import ru.orangepigment.pfp.models.{ EncryptedPassword, Password }
 
 trait Crypto {

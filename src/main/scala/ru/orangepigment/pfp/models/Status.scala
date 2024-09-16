@@ -1,9 +1,9 @@
 package ru.orangepigment.pfp.models
 
 import cats.Eq
-import cats.derived._
+import cats.derived.*
 import io.circe.Encoder
-import monix.newtypes._
+import monix.newtypes.*
 import monix.newtypes.integrations.DerivedCirceCodec
 import monocle.Iso
 

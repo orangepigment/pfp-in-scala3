@@ -1,9 +1,9 @@
 package ru.orangepigment.pfp.services.auth
 
-import cats.syntax.alternative._
-import cats.syntax.applicative._
-import cats.syntax.eq._
-import cats.syntax.functor._
+import cats.syntax.alternative.*
+import cats.syntax.applicative.*
+import cats.syntax.eq.*
+import cats.syntax.functor.*
 import cats.{ Applicative, Functor }
 import dev.profunktor.auth.jwt.JwtToken
 import dev.profunktor.redis4cats.RedisCommands

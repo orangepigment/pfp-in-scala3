@@ -3,7 +3,7 @@ package ru.orangepigment.pfp.models
 import scala.util.control.NoStackTrace
 
 import cats.{ Eq, Show }
-import cats.derived._
+import cats.derived.*
 import io.circe.Codec
 
 object Errors {

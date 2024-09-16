@@ -3,10 +3,10 @@ package ru.orangepigment.pfp.models
 import java.util.UUID
 
 import cats.{ Eq, Show }
-import cats.derived._
-import cats.syntax.either._
+import cats.derived.*
+import cats.syntax.either.*
 import io.circe.{ Codec, KeyDecoder, KeyEncoder }
-import monix.newtypes._
+import monix.newtypes.*
 import monix.newtypes.integrations.DerivedCirceCodec
 import squants.market.Money
 import ru.orangepigment.pfp.models.OrphanInstances.given

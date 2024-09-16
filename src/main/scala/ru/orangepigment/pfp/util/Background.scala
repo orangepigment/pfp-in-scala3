@@ -2,8 +2,8 @@ package ru.orangepigment.pfp.util
 
 import scala.concurrent.duration.FiniteDuration
 
-import cats.syntax.apply._
-import cats.syntax.functor._
+import cats.syntax.apply.*
+import cats.syntax.functor.*
 import cats.effect.Temporal
 import cats.effect.std.Supervisor
 

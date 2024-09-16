@@ -1,12 +1,12 @@
 package ru.orangepigment.pfp.clients
 
 import cats.effect.IO
-import io.github.iltotore.iron._
+import io.github.iltotore.iron.*
 import org.http4s.Method.POST
 import org.http4s.client.Client
 import org.http4s.{ HttpRoutes, Response }
-import org.http4s.circe.CirceEntityEncoder._
-import org.http4s.dsl.io._
+import org.http4s.circe.CirceEntityEncoder.*
+import org.http4s.dsl.io.*
 import ru.orangepigment.pfp.conf.{ PaymentConfig, PaymentURI }
 import ru.orangepigment.pfp.models.Errors.PaymentError
 import ru.orangepigment.pfp.models.PaymentId

@@ -1,7 +1,7 @@
 package ru.orangepigment.pfp.services.auth
 
 import cats.effect.Sync
-import cats.syntax.functor._
+import cats.syntax.functor.*
 import pdi.jwt.JwtClaim
 
 trait JwtExpire[F[_]] {

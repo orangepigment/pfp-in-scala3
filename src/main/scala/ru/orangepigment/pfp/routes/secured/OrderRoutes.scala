@@ -3,8 +3,8 @@ package ru.orangepigment.pfp.routes.secured
 import java.util.UUID
 
 import cats.Monad
-import cats.syntax.either._
-import org.http4s.circe.CirceEntityEncoder._
+import cats.syntax.either.*
+import org.http4s.circe.CirceEntityEncoder.*
 import org.http4s.dsl.Http4sDsl
 import org.http4s.server.{ AuthMiddleware, Router }
 import org.http4s.{ AuthedRoutes, HttpRoutes }

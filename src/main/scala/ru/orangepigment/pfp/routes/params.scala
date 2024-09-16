@@ -3,11 +3,11 @@ package ru.orangepigment.pfp.routes
 import java.util.UUID
 
 import io.circe.Codec
-import io.github.iltotore.iron._
-import io.github.iltotore.iron.constraint.collection._
-import io.github.iltotore.iron.constraint.string._
+import io.github.iltotore.iron.*
+import io.github.iltotore.iron.constraint.collection.*
+import io.github.iltotore.iron.constraint.string.*
 import io.github.iltotore.iron.circe.given
-import monix.newtypes._
+import monix.newtypes.*
 import monix.newtypes.integrations.DerivedCirceCodec
 import ru.orangepigment.pfp.models.{
   BrandId,

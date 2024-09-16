@@ -1,13 +1,13 @@
 package ru.orangepigment.pfp.services
 
 import cats.effect.{ MonadCancelThrow, Resource }
-import cats.syntax.flatMap._
-import cats.syntax.functor._
+import cats.syntax.flatMap.*
+import cats.syntax.functor.*
 import ru.orangepigment.pfp.models.{ Category, CategoryId, CategoryName, ID }
 import ru.orangepigment.pfp.util.GenUUID
-import ru.orangepigment.pfp.util.sqlcodecs._
-import skunk._
-import skunk.implicits._
+import ru.orangepigment.pfp.util.sqlcodecs.*
+import skunk.*
+import skunk.implicits.*
 
 trait Categories[F[_]] {
   def findAll: F[List[Category]]
@@ -21,7 +21,7 @@ object Categories {
   ): Categories[F] =
     new Categories[F] {
 
-      import CategorySQL._
+      import CategorySQL.*
 
       def findAll: F[List[Category]] =
         postgres.use(_.execute(selectAll))

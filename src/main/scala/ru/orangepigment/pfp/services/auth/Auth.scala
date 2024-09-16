@@ -1,16 +1,16 @@
 package ru.orangepigment.pfp.services.auth
 
 import cats.MonadThrow
-import cats.syntax.applicative._
-import cats.syntax.applicativeError._
-import cats.syntax.apply._
-import cats.syntax.eq._
-import cats.syntax.flatMap._
-import cats.syntax.functor._
-import cats.syntax.show._
+import cats.syntax.applicative.*
+import cats.syntax.applicativeError.*
+import cats.syntax.apply.*
+import cats.syntax.eq.*
+import cats.syntax.flatMap.*
+import cats.syntax.functor.*
+import cats.syntax.show.*
 import dev.profunktor.auth.jwt.JwtToken
 import dev.profunktor.redis4cats.RedisCommands
-import io.circe.syntax._
+import io.circe.syntax.*
 import ru.orangepigment.pfp.models.Errors.{ InvalidPassword, UserNameInUse, UserNotFound }
 import ru.orangepigment.pfp.models.OrphanInstances.given
 import ru.orangepigment.pfp.models.{ Password, User, UserName }

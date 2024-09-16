@@ -1,7 +1,7 @@
 package ru.orangepigment.pfp.models
 
 import cats.Functor
-import cats.syntax.functor._
+import cats.syntax.functor.*
 import ru.orangepigment.pfp.util.{ GenUUID, IsUUID }
 
 object ID {

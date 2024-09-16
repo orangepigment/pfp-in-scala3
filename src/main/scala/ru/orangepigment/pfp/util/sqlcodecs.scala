@@ -15,7 +15,7 @@ import ru.orangepigment.pfp.models.{
   UserName
 }
 import skunk.Codec
-import skunk.codec.all._
+import skunk.codec.all.*
 import squants.market.{ Money, USD }
 
 object sqlcodecs {

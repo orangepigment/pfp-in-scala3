@@ -1,7 +1,7 @@
 package ru.orangepigment.pfp.util.retries
 
 import cats.Show
-import cats.derived._
+import cats.derived.*
 
 enum Retriable derives Show {
   case Orders   extends Retriable

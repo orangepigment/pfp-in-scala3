@@ -3,9 +3,9 @@ package ru.orangepigment.pfp.models
 import java.util.UUID
 
 import cats.{ Eq, Show }
-import cats.derived._
+import cats.derived.*
 import io.circe.Codec
-import monix.newtypes._
+import monix.newtypes.*
 import monix.newtypes.integrations.DerivedCirceCodec
 
 type CategoryId = CategoryId.Type

@@ -6,10 +6,10 @@ import scala.concurrent.duration.FiniteDuration
 
 import cats.Show
 import dev.profunktor.auth.jwt.JwtSymmetricAuth
-import io.github.iltotore.iron._
-import io.github.iltotore.iron.constraint.collection._
+import io.github.iltotore.iron.*
+import io.github.iltotore.iron.constraint.collection.*
 import io.github.iltotore.iron.cats.given
-import monix.newtypes._
+import monix.newtypes.*
 
 type TokenExpiration = TokenExpiration.Type
 object TokenExpiration extends NewtypeWrapped[FiniteDuration]

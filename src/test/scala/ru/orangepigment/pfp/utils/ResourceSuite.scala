@@ -1,7 +1,7 @@
 package ru.orangepigment.pfp.utils
 
 import cats.effect.{ IO, Resource }
-import cats.syntax.flatMap._
+import cats.syntax.flatMap.*
 import weaver.{ Expectations, IOSuite }
 import weaver.scalacheck.{ CheckConfig, Checkers }
 

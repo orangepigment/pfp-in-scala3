@@ -2,11 +2,11 @@ package ru.orangepigment.pfp.database
 
 import cats.data.NonEmptyList
 import cats.effect.{ IO, Resource }
-import cats.syntax.eq._
-import cats.syntax.foldable._
+import cats.syntax.eq.*
+import cats.syntax.foldable.*
 import natchez.Trace.Implicits.noop
 import org.scalacheck.Gen
-import ru.orangepigment.pfp.models._
+import ru.orangepigment.pfp.models.*
 import ru.orangepigment.pfp.models.OrphanInstances.given
 import ru.orangepigment.pfp.services.{ Brands, Categories, Items, Orders, Users }
 import ru.orangepigment.pfp.utils.ResourceSuite
@@ -21,8 +21,8 @@ import ru.orangepigment.pfp.utils.generators.{
   paymentIdGen,
   userNameGen
 }
-import skunk._
-import skunk.implicits._
+import skunk.*
+import skunk.implicits.*
 
 object PostgresSuite extends ResourceSuite {
   type Res = Resource[IO, Session[IO]]

@@ -4,8 +4,8 @@ import scala.annotation.nowarn
 
 import cats.effect.IO
 import cats.effect.kernel.Ref
-import retry.RetryDetails._
-import retry._
+import retry.RetryDetails.*
+import retry.*
 import ru.orangepigment.pfp.util.retries.{ Retriable, Retry }
 
 object TestRetry {

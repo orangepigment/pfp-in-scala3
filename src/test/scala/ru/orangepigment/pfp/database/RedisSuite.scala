@@ -6,18 +6,18 @@ import scala.concurrent.duration.DurationInt
 
 import cats.effect.kernel.Ref
 import cats.effect.{ IO, Resource }
-import cats.syntax.alternative._
-import cats.syntax.eq._
-import cats.syntax.functor._
+import cats.syntax.alternative.*
+import cats.syntax.eq.*
+import cats.syntax.functor.*
 import dev.profunktor.auth.jwt.{ JwtAuth, JwtToken, jwtDecode }
-import dev.profunktor.redis4cats.log4cats._
+import dev.profunktor.redis4cats.log4cats.*
 import dev.profunktor.redis4cats.{ Redis, RedisCommands }
-import io.github.iltotore.iron._
+import io.github.iltotore.iron.*
 import org.typelevel.log4cats.Logger
 import org.typelevel.log4cats.noop.NoOpLogger
 import pdi.jwt.{ JwtAlgorithm, JwtClaim }
 import ru.orangepigment.pfp.conf.JwtSecretKeyConfig
-import ru.orangepigment.pfp.models._
+import ru.orangepigment.pfp.models.*
 import ru.orangepigment.pfp.models.Errors.{ InvalidPassword, UserNotFound }
 import ru.orangepigment.pfp.services.auth.{
   Auth,

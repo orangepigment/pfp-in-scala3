@@ -3,9 +3,9 @@ package ru.orangepigment.pfp.models
 import scala.concurrent.duration.FiniteDuration
 
 import cats.{ Eq, Show }
-import cats.derived._
+import cats.derived.*
 import io.circe.{ Codec, Decoder, Encoder }
-import monix.newtypes._
+import monix.newtypes.*
 import monix.newtypes.integrations.DerivedCirceCodec
 import squants.market.{ Money, USD }
 import ru.orangepigment.pfp.models.OrphanInstances.given

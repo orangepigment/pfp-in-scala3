@@ -4,12 +4,12 @@ import scala.concurrent.duration.DurationInt
 
 import cats.MonadThrow
 import cats.data.NonEmptyList
-import cats.syntax.apply._
-import cats.syntax.applicativeError._
-import cats.syntax.monadError._
-import cats.syntax.functor._
-import cats.syntax.flatMap._
-import cats.syntax.show._
+import cats.syntax.apply.*
+import cats.syntax.applicativeError.*
+import cats.syntax.monadError.*
+import cats.syntax.functor.*
+import cats.syntax.flatMap.*
+import cats.syntax.show.*
 import org.typelevel.log4cats.Logger
 import retry.RetryPolicy
 import ru.orangepigment.pfp.clients.PaymentClient

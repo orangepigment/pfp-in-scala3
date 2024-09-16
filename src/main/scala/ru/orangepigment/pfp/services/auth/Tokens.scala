@@ -1,12 +1,12 @@
 package ru.orangepigment.pfp.services.auth
 
-import ru.orangepigment.pfp.conf._
+import ru.orangepigment.pfp.conf.*
 import cats.Monad
-import cats.syntax.flatMap._
-import cats.syntax.functor._
-import dev.profunktor.auth.jwt._
-import io.circe.syntax._
-import pdi.jwt._
+import cats.syntax.flatMap.*
+import cats.syntax.functor.*
+import dev.profunktor.auth.jwt.*
+import io.circe.syntax.*
+import pdi.jwt.*
 import ru.orangepigment.pfp.util.GenUUID
 
 trait Tokens[F[_]] {
