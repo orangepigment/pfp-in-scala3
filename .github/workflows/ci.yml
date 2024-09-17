@@ -6,20 +6,20 @@ on:
       - main
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
 
       - uses: olafurpg/setup-scala@v14
         with:
-          java-version: graalvm@22.0.2
+          java-version: graalvm@21.1.0
 
       - name: Starting up Postgres & Redis
-        run: docker-compose up -d
+        run: docker compose up -d
 
       - name: Tests
         run: sbt 'test' # ;it:test
 
       - name: Shutting down Postgres & Redis
-        run: docker-compose down
+        run: docker compose down
